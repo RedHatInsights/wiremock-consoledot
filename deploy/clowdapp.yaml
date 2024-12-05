@@ -126,7 +126,7 @@ objects:
           "priority": 10,
           "request": {
             "method": "ANY",
-            "urlPattern": "/mock/contractApi/api/swatch-contracts/internal/contracts.*"
+            "urlPattern": "/mock/contractApi/api/swatch-contracts/internal.*"
           },
           "response": {
             "proxyBaseUrl": "${SWATCH_CONTRACT_SERVICE_URL}",
