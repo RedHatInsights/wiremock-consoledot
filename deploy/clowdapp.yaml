@@ -24,6 +24,8 @@ parameters:
     value: placeholder
   - name: SWATCH_CONTRACT_SERVICE_URL
     value: placeholder
+  - name: AWS_MARKETPLACE_URL
+    value: placeholder
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: ClowdApp
@@ -131,6 +133,23 @@ objects:
           "response": {
             "proxyBaseUrl": "${SWATCH_CONTRACT_SERVICE_URL}",
             "proxyUrlPrefixToRemove": "/mock/contractApi"
+          }
+        }
+      aws_marketplace_proxy.json: |-
+        {
+          "priority": 10,
+          "request": {
+            "method": "ANY",
+            "urlPattern": "/mock/aws.*",
+            "bodyPatterns": [
+              {
+                "doesNotContain": "_UseWiremock_"
+              }
+            ]
+          },
+          "response": {
+            "proxyBaseUrl": "${AWS_MARKETPLACE_URL}",
+            "proxyUrlPrefixToRemove": "/mock/aws"
           }
         }
 
