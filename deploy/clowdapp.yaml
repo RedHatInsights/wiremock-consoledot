@@ -9,7 +9,7 @@ parameters:
   - name: WIREMOCK_IMAGE
     value: quay.io/cloudservices/wiremock
   - name: WIREMOCK_IMAGE_TAG
-    value: 3x-alpine
+    value: latest
   - name: MEMORY_REQUEST
     value: 256Mi
   - name: MEMORY_LIMIT
@@ -59,7 +59,7 @@ objects:
                     key: keystore_password
               - name: WIREMOCK_OPTIONS
                 # Wiremock uses the truststore instead of keystore to read client certs: https://wiremock.org/docs/proxying/#proxying-to-a-target-server-that-requires-client-certificate-authentication
-                value: --port=8000 --https-truststore=/pinhead/keystore.jks --truststore-type=JKS --truststore-password=$(KEYSTORE_PASSWORD)
+                value: --https-truststore=/pinhead/keystore.jks --truststore-type=JKS --truststore-password=$(KEYSTORE_PASSWORD)
             livenessProbe:
               failureThreshold: 3
               httpGet:
