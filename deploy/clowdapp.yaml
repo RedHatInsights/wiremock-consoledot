@@ -26,6 +26,8 @@ parameters:
     value: placeholder
   - name: AWS_MARKETPLACE_URL
     value: placeholder
+  - name: PRODUCT_URL
+    value: placeholder
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: ClowdApp
