@@ -152,4 +152,21 @@ objects:
             "proxyUrlPrefixToRemove": "/mock/aws"
           }
         }
+      product_service_response.json: |-
+        {
+          "priority": 10,
+          "request": {
+            "method": "ANY",
+            "urlPattern": "/mock/product.*",
+            "bodyPatterns": [
+              {
+                "doesNotContain": "_UseWiremock_"
+              }
+            ]
+          },
+          "response": {
+            "proxyBaseUrl": "${PRODUCT_URL}",
+            "proxyUrlPrefixToRemove": "/mock/product"
+          }
+        }
 
