@@ -11,9 +11,9 @@ parameters:
   - name: WIREMOCK_IMAGE_TAG
     value: latest
   - name: MEMORY_REQUEST
-    value: 256Mi
-  - name: MEMORY_LIMIT
     value: 512Mi
+  - name: MEMORY_LIMIT
+    value: 1Gi
   - name: CPU_REQUEST
     value: 150m
   - name: CPU_LIMIT
