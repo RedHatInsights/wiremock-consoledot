@@ -19,7 +19,7 @@ parameters:
   - name: CPU_LIMIT
     value: 300m
   - name: MAX_REQUEST_JOURNAL_ENTRIES
-    value: 500
+    value: '500'
   - name: SUBSCRIPTION_SEARCH_URL
     value: placeholder
   - name: PARTNER_ENTITLEMENT_URL
