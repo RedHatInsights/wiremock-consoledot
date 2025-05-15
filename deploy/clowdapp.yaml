@@ -18,6 +18,8 @@ parameters:
     value: 150m
   - name: CPU_LIMIT
     value: 300m
+  - name: MAX_REQUEST_JOURNAL_ENTRIES
+    value: 500
   - name: SUBSCRIPTION_SEARCH_URL
     value: placeholder
   - name: PARTNER_ENTITLEMENT_URL
@@ -61,7 +63,7 @@ objects:
                     key: keystore_password
               - name: WIREMOCK_OPTIONS
                 # Wiremock uses the truststore instead of keystore to read client certs: https://wiremock.org/docs/proxying/#proxying-to-a-target-server-that-requires-client-certificate-authentication
-                value: --https-truststore=/pinhead/keystore.jks --truststore-type=JKS --truststore-password=$(KEYSTORE_PASSWORD)
+                value: --https-truststore=/pinhead/keystore.jks --truststore-type=JKS --truststore-password=$(KEYSTORE_PASSWORD) --max-request-journal-entries=$(MAX_REQUEST_JOURNAL_ENTRIES)
             livenessProbe:
               failureThreshold: 3
               httpGet:
