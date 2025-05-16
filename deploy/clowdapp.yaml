@@ -62,7 +62,7 @@ objects:
               - name: WIREMOCK_OPTIONS
                 # Wiremock uses the truststore instead of keystore to read client certs: https://wiremock.org/docs/proxying/#proxying-to-a-target-server-that-requires-client-certificate-authentication
                 # Max request entries is set for memory conservation
-                value: --https-truststore=/pinhead/keystore.jks --truststore-type=JKS --truststore-password=$(KEYSTORE_PASSWORD) --max-request-journal-entries=500
+                value: --https-truststore=/pinhead/keystore.jks --truststore-type=JKS --truststore-password=$(KEYSTORE_PASSWORD) --max-request-journal-entries=100
             livenessProbe:
               failureThreshold: 3
               httpGet:
