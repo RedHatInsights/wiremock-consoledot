@@ -28,6 +28,9 @@ parameters:
     value: placeholder
   - name: PRODUCT_URL
     value: placeholder
+  # PROM_URL is provided by the "token-refresher" sidecar
+  - name: PROM_URL
+    value: placeholder
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: ClowdApp
@@ -46,6 +49,10 @@ objects:
               enabled: true
           podSpec:
             image: ${WIREMOCK_IMAGE}:${WIREMOCK_IMAGE_TAG}
+            # Needed to proxy the Prometheus API service
+            sidecars:
+              - name: token-refresher
+                enabled: true
             resources:
               requests:
                 cpu: ${CPU_REQUEST}
@@ -170,6 +177,23 @@ objects:
           "response": {
             "proxyBaseUrl": "${PRODUCT_URL}",
             "proxyUrlPrefixToRemove": "/mock/product"
+          }
+        }
+      prom_service_response.json: |-
+        {
+          "priority": 10,
+          "request": {
+            "method": "ANY",
+            "urlPattern": "/mock/prometheusApi.*",
+            "bodyPatterns": [
+              {
+                "doesNotContain": "_UseWiremock_"
+              }
+            ]
+          },
+          "response": {
+            "proxyBaseUrl": "${PROM_URL}",
+            "proxyUrlPrefixToRemove": "/mock/prometheusApi"
           }
         }
 
