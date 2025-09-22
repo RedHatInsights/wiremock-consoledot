@@ -10,7 +10,7 @@ RUN mkdir -p /var/wiremock/lib/ \
     -o /var/wiremock/lib/wiremock-standalone.jar
 
 # Runtime
-FROM registry.access.redhat.com/ubi9/openjdk-17-runtime:1.23-6.1757607788
+FROM registry.access.redhat.com/ubi9/openjdk-17-runtime:1.23-6.1758133909
 COPY --from=build /var/wiremock/lib/wiremock-standalone.jar /var/wiremock/lib/wiremock-standalone.jar
 
 LABEL maintainer="Red Hat, Inc."
