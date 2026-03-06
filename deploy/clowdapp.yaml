@@ -7,7 +7,7 @@ parameters:
   - name: ENV_NAME
     value: env-wiremock
   - name: WIREMOCK_IMAGE
-    value: quay.io/cloudservices/wiremock
+    value: quay.io/redhat-services-prod/rh-subs-watch-tenant/wiremock-consoledot
   - name: WIREMOCK_IMAGE_TAG
     value: latest
   - name: MEMORY_REQUEST
