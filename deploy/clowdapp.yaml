@@ -26,8 +26,6 @@ parameters:
     value: placeholder
   - name: AWS_MARKETPLACE_URL
     value: placeholder
-  - name: PRODUCT_URL
-    value: placeholder
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: ClowdApp
@@ -153,23 +151,6 @@ objects:
           "response": {
             "proxyBaseUrl": "${AWS_MARKETPLACE_URL}",
             "proxyUrlPrefixToRemove": "/mock/aws"
-          }
-        }
-      product_service_response.json: |-
-        {
-          "priority": 10,
-          "request": {
-            "method": "ANY",
-            "urlPattern": "/mock/product.*",
-            "bodyPatterns": [
-              {
-                "doesNotContain": "_UseWiremock_"
-              }
-            ]
-          },
-          "response": {
-            "proxyBaseUrl": "${PRODUCT_URL}",
-            "proxyUrlPrefixToRemove": "/mock/product"
           }
         }
 
