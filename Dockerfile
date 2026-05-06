@@ -3,11 +3,20 @@ FROM registry.access.redhat.com/ubi9/ubi:9.7-1778044007 AS build
 USER 0
 
 ENV WIREMOCK_VERSION 3.12.0
+# https://repo1.maven.org/maven2/ -> Maven Central returns absent or rate limit errors.
+ENV REPO_URL https://maven-central.storage-download.googleapis.com/maven2/
 
 # grab wiremock standalone jar
-RUN mkdir -p /var/wiremock/lib/ \
-  && curl https://repo1.maven.org/maven2/org/wiremock/wiremock-standalone/$WIREMOCK_VERSION/wiremock-standalone-$WIREMOCK_VERSION.jar \
-    -o /var/wiremock/lib/wiremock-standalone.jar
+RUN set -eux; \
+  wiremock_url="${REPO_URL%/}/org/wiremock/wiremock-standalone/${WIREMOCK_VERSION}/wiremock-standalone-${WIREMOCK_VERSION}.jar"; \
+  mkdir -p /var/wiremock/lib/; \
+  curl -fSL --retry 5 --retry-all-errors --connect-timeout 20 --max-time 300 \
+    "${wiremock_url}" -o /tmp/wiremock-standalone.jar; \
+  test -s /tmp/wiremock-standalone.jar; \
+  bytes="$(wc -c < /tmp/wiremock-standalone.jar)"; \
+  test "${bytes}" -gt 1000000; \
+  test "$(od -An -N2 -t x1 /tmp/wiremock-standalone.jar | tr -d ' \n')" = "504b"; \
+  mv /tmp/wiremock-standalone.jar /var/wiremock/lib/wiremock-standalone.jar
 
 # Runtime
 FROM registry.access.redhat.com/ubi9/openjdk-17-runtime:1.24-2.1777575921
