@@ -28,7 +28,7 @@ RUN set -eux; \
     -o /var/wiremock/grpc/kessel.dsc --as-file-descriptor-set
 
 # Runtime
-FROM registry.access.redhat.com/ubi9/openjdk-17-runtime:1.24-3.1788187384
+FROM registry.access.redhat.com/ubi9/openjdk-17-runtime:1.24-3.1788862451
 
 LABEL maintainer="Red Hat, Inc."
 
