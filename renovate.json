@@ -1,9 +1,15 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "tekton": {
-      "enabled": true,
-      "automerge": true,
-      "schedule": ["* * * * *"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "tekton": {
+    "enabled": true,
+    "automerge": true,
+    "schedule": ["* * * * *"]
+  },
+  "packageRules": [
+    {
+      "description": "Do not open MintMaker PRs for Maven (pom.xml / lockfile.json managed via scripts/refresh-vendor.sh).",
+      "matchManagers": ["maven", "maven-wrapper"],
+      "enabled": false
     }
-  }
-  
+  ]
+}
