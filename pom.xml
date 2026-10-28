@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimal Maven project so Hermeto x-maven can prefetch the WireMock JARs
+  used by Dockerfile. This is not an application build — only a
+  lockfile source for Konflux hermetic prefetch (SWATCH-5722 / KONFLUX-3775).
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.redhat.swatch</groupId>
+  <artifactId>wiremock-consoledot</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>wiremock-consoledot</name>
+  <description>Hermeto x-maven lockfile source for WireMock runtime JARs</description>
+
+  <properties>
+    <wiremock.version>3.12.0</wiremock.version>
+    <wiremock.grpc.version>0.11.0</wiremock.grpc.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.wiremock</groupId>
+      <artifactId>wiremock-standalone</artifactId>
+      <version>${wiremock.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.wiremock</groupId>
+      <artifactId>wiremock-grpc-extension-standalone</artifactId>
+      <version>${wiremock.grpc.version}</version>
+    </dependency>
+  </dependencies>
+</project>

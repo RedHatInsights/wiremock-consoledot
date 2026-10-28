@@ -1,0 +1,71 @@
+{
+  "artifactId": "wiremock-consoledot",
+  "groupId": "com.redhat.swatch",
+  "version": "1.0.0-SNAPSHOT",
+  "pom": {
+    "groupId": "com.redhat.swatch",
+    "artifactId": "wiremock-consoledot",
+    "version": "1.0.0-SNAPSHOT",
+    "relativePath": "pom.xml",
+    "checksumAlgorithm": "SHA-256",
+    "checksum": "76e8385e292082cf32027e5a48c668660e1ff3b1c5d5d420ba9128e667530d21"
+  },
+  "lockFileVersion": 1,
+  "dependencies": [
+    {
+      "groupId": "org.wiremock",
+      "artifactId": "wiremock-grpc-extension-standalone",
+      "version": "0.11.0",
+      "checksumAlgorithm": "SHA-256",
+      "checksum": "f1e1f822abe07eaff012e059dec5c0aec1e23c8fb3bb3978064a894849e82840",
+      "scope": "compile",
+      "resolved": "https://maven-central.storage-download.googleapis.com/maven2/org/wiremock/wiremock-grpc-extension-standalone/0.11.0/wiremock-grpc-extension-standalone-0.11.0.jar",
+      "repositoryId": "google-maven-central",
+      "selectedVersion": "0.11.0",
+      "included": true,
+      "id": "org.wiremock:wiremock-grpc-extension-standalone:0.11.0",
+      "children": [],
+      "boms": []
+    },
+    {
+      "groupId": "org.wiremock",
+      "artifactId": "wiremock-standalone",
+      "version": "3.12.0",
+      "checksumAlgorithm": "SHA-256",
+      "checksum": "c41ca50c86b352cbc85468adadd17f71d1e24e6dcde32874df6b0f11299f7b41",
+      "scope": "compile",
+      "resolved": "https://maven-central.storage-download.googleapis.com/maven2/org/wiremock/wiremock-standalone/3.12.0/wiremock-standalone-3.12.0.jar",
+      "repositoryId": "google-maven-central",
+      "selectedVersion": "3.12.0",
+      "included": true,
+      "id": "org.wiremock:wiremock-standalone:3.12.0",
+      "children": [],
+      "boms": []
+    }
+  ],
+  "mavenPlugins": [],
+  "mavenExtensions": [],
+  "metaData": {
+    "config": {
+      "includeMavenPlugins": false,
+      "allowValidationFailure": false,
+      "allowPomValidationFailure": false,
+      "allowMavenPluginValidationFailure": false,
+      "allowEnvironmentalValidationFailure": false,
+      "includeEnvironment": false,
+      "reduced": true,
+      "mavenLockfileVersion": "5.18.7-beta-2",
+      "mavenLockfileChecksum": "64e13a7f80b28a3ab04d9ea72175df8ec65e3ff749de9107d3d18ccb34fb361f",
+      "checksumMode": "remote",
+      "checksumAlgorithm": "SHA-256",
+      "includeBoms": true,
+      "allowBomValidationFailure": false,
+      "includeParentPom": true,
+      "allowParentPomValidationFailure": false,
+      "includeMavenExtensions": true,
+      "allowMavenExtensionsValidationFailure": false,
+      "hermetic": false
+    }
+  },
+  "boms": []
+}
