@@ -1,0 +1,10 @@
+# Local Hermeto output (prefetch reproduction)
+hermeto-output/
+.cachi2/
+# Scratch jars from scripts/refresh-vendor.sh
+/tmp/
+vendor/lib/
+vendor/extensions/
+.syft-test/
+target/
+.mvn/
