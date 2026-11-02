@@ -1,0 +1,10 @@
+<!-- Used when regenerating lockfile.json (scripts/refresh-vendor.sh). -->
+<settings>
+  <mirrors>
+    <mirror>
+      <id>google-maven-central</id>
+      <mirrorOf>central</mirrorOf>
+      <url>https://maven-central.storage-download.googleapis.com/maven2</url>
+    </mirror>
+  </mirrors>
+</settings>
